@@ -11,11 +11,11 @@ npm install react-native-video-duration
 ## Usage
 
 ```js
-import { multiply } from 'react-native-video-duration';
+import { getVideoDuration } from 'react-native-video-duration';
 
 // ...
 
-const result = await multiply(3, 7);
+const result = await getVideoDuration("Video URL path");
 ```
 
 ## Contributing
