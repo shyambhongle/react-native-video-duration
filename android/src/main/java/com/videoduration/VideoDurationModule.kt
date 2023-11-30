@@ -33,7 +33,6 @@ class VideoDurationModule(reactContext: ReactApplicationContext) :
       retriever.setDataSource(context, videoUri)
       val duration = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)
       retriever.release()
-      println("Yaha aya"+duration)
       if (duration != null) {
         promise.resolve(duration)
       } else {

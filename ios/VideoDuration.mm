@@ -1,14 +1,11 @@
-#import <React/RCTBridgeModule.h>
+#import <Foundation/Foundation.h>
 
-@interface RCT_EXTERN_MODULE(VideoDuration, NSObject)
-
-RCT_EXTERN_METHOD(multiply:(float)a withB:(float)b
-                 withResolver:(RCTPromiseResolveBlock)resolve
-                 withRejecter:(RCTPromiseRejectBlock)reject)
-
-+ (BOOL)requiresMainQueueSetup
-{
-  return NO;
-}
-
+#import "React/RCTBridgeModule.h"
+@interface
+RCT_EXTERN_MODULE(VideoDuration, NSObject)
+RCT_EXTERN_METHOD(getVideoDuration:
+   (NSURL *) param
+   resolver:(RCTPromiseResolveBlock) resolve
+   rejecter:(RCTPromiseRejectBlock)reject
+)
 @end

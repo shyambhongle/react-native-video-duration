@@ -1,5 +1,8 @@
 import { NativeModules, Platform } from 'react-native';
-const VideoDuration = NativeModules.VideoDurationModule;
+const VideoDuration =
+  Platform.OS === 'android'
+    ? NativeModules.VideoDurationModule
+    : NativeModules.VideoDuration;
 
 export async function getVideoDuration(videoPath: String): Promise<Number> {
   const result = await VideoDuration.getVideoDuration(videoPath);
