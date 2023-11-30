@@ -16,6 +16,8 @@ import { getVideoDuration } from 'react-native-video-duration';
 // ...
 
 const result = await getVideoDuration("Video URL path");
+// Return video duration in "seconds"
+
 ```
 
 ## Contributing
