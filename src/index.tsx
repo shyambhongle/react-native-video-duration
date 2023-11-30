@@ -1,22 +1,10 @@
 import { NativeModules, Platform } from 'react-native';
+const VideoDuration = NativeModules.VideoDurationModule;
 
-const LINKING_ERROR =
-  `The package 'react-native-video-duration' doesn't seem to be linked. Make sure: \n\n` +
-  Platform.select({ ios: "- You have run 'pod install'\n", default: '' }) +
-  '- You rebuilt the app after installing the package\n' +
-  '- You are not using Expo Go\n';
-
-const VideoDuration = NativeModules.VideoDuration
-  ? NativeModules.VideoDuration
-  : new Proxy(
-      {},
-      {
-        get() {
-          throw new Error(LINKING_ERROR);
-        },
-      }
-    );
-
-export function multiply(a: number, b: number): Promise<number> {
-  return VideoDuration.multiply(a, b);
+export async function getVideoDuration(videoPath: String): Promise<Number> {
+  const result = await VideoDuration.getVideoDuration(videoPath);
+  if (result && result > 0) {
+    return Platform.OS === 'android' ? result / 1000 : result;
+  }
+  return 0;
 }
