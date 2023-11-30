@@ -1,6 +1,6 @@
 {
   "name": "react-native-video-duration",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Retrieve the video duration on iOS and Android platforms by specifying the file path.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
